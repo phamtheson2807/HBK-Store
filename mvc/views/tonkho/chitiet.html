@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title></title>
+    <script src="https://kit.fontawesome.com/e123c1a84c.js" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+    <link rel="stylesheet" href="../css/web.css">
+
+
+    <script>
+        function magnify(imgID, zoom) {
+            var img, glass, w, h, bw;
+            img = document.getElementById(imgID);
+            /*create magnifier glass:*/
+            glass = document.createElement("DIV");
+            glass.setAttribute("class", "img-magnifier-glass");
+            /*insert magnifier glass:*/
+            img.parentElement.insertBefore(glass, img);
+            /*set background properties for the magnifier glass:*/
+            glass.style.backgroundImage = "url('" + img.src + "')";
+            glass.style.backgroundRepeat = "no-repeat";
+            glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+            bw = 3;
+            w = glass.offsetWidth / 2;
+            h = glass.offsetHeight / 2;
+            /*execute a function when someone moves the magnifier glass over the image:*/
+            glass.addEventListener("mousemove", moveMagnifier);
+            img.addEventListener("mousemove", moveMagnifier);
+            /*and also for touch screens:*/
+            glass.addEventListener("touchmove", moveMagnifier);
+            img.addEventListener("touchmove", moveMagnifier);
+            function moveMagnifier(e) {
+                var pos, x, y;
+                /*prevent any other actions that may occur when moving over the image*/
+                e.preventDefault();
+                /*get the cursor's x and y positions:*/
+                pos = getCursorPos(e);
+                x = pos.x;
+                y = pos.y;
+                /*prevent the magnifier glass from being positioned outside the image:*/
+                if (x > img.width - (w / zoom)) { x = img.width - (w / zoom); }
+                if (x < w / zoom) { x = w / zoom; }
+                if (y > img.height - (h / zoom)) { y = img.height - (h / zoom); }
+                if (y < h / zoom) { y = h / zoom; }
+                /*set the position of the magnifier glass:*/
+                glass.style.left = (x - w) + "px";
+                glass.style.top = (y - h) + "px";
+                /*display what the magnifier glass "sees":*/
+                glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+            }
+            function getCursorPos(e) {
+                var a, x = 0, y = 0;
+                e = e || window.event;
+                /*get the x and y positions of the image:*/
+                a = img.getBoundingClientRect();
+                /*calculate the cursor's x and y coordinates, relative to the image:*/
+                x = e.pageX - a.left;
+                y = e.pageY - a.top;
+                /*consider any page scrolling:*/
+                x = x - window.pageXOffset;
+                y = y - window.pageYOffset;
+                return { x: x, y: y };
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="top_nav_tt ">
+        <div class="call__us">
+            <span>
+                <i class="fas fa-phone-alt"></i> 012397131
+            </span>
+        </div>
+        <div class="login__us d-flex">
+            <div class="dropdown">
+                <div class="dropdown-toggle" data-bs-toggle="dropdown">
+                    <img src="../img/Rectangle 11.png" alt="" style="width: 30px; border-radius: 50%;">
+                    <span>chu tất bách</span>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item text-dark" href="#">Admin</a></li>
+                    <li><a class="dropdown-item text-dark" href="#">Thong tin tai khoan</a></li>
+                    <li><a class="dropdown-item text-dark" href="#">Login</a></li>
+                    <li><a class="dropdown-item text-dark" href="#">Out login</a></li>
+                </ul>
+            </div>
+            <span>/</span>
+            <a href="">Đăng ký</a>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-sm bg-white navbar-white sticky-top">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="#">
+                <div class="nav__logo">
+                    <img src="../img/Rectangle 2.png" alt="">
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/home.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown">Dropdown</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Link</a></li>
+                            <li><a class="dropdown-item" href="#">Another link</a></li>
+                            <li><a class="dropdown-item" href="#">A third link</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul>
+                <div class="nav__right d-flex justify-content-around ">
+                    <span style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fas fa-search"></i></span>
+                    <div class="love">
+                        <div class="sl">1</div>
+                        <span>
+                            <i class="fas fa-heart"></i>
+                        </span>
+                    </div>
+                    <div class="shop__cart">
+                        <div class="sl">1</div>
+                        <span>
+                            <i class="fab fa-shopify"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <form class="d-flex">
+                <input class="form-control me-2" type="text" placeholder="Search">
+                <button class="btn btn-primary" type="button">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\main\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+    <main class="container mt-5">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../html/home.html">Trang chủ</a></li>
+            <li class="breadcrumb-item active"><a href="../html/chitiet.html">Chi tiết sản phẩm</a></li>
+        </ul>
+        <div class="container tieude-main py-1">
+            <a href="">
+                <span class="text-white">Chi tiết sản phẩm</span>
+            </a>
+        </div>
+        <section class="p-5"
+            style="box-shadow: 0px 0px 10px rgba(134, 133, 133, 0.37); border-radius: 0px 0px 40px 40px;">
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div id="mdb-lightbox-ui">
+
+                    </div>
+
+                    <div class="mdb-lightbox">
+
+                        <div class="row product-gallery">
+
+                            <div class="img col-12 mb-0 img-magnifier-container">
+                                <img src="../img/Rectangle 48.png" id="myimage" class="img-fluid z-depth-1">
+                            </div>
+
+                            <div class="col-12 mt-3">
+                                <div class="row">
+                                    <div class=" col-3 border d-flex">
+                                        <img src="../img/Rectangle 48.png" width="100px" height="100px">
+                                        <div class="mask rgba-white-slight"></div>
+                                    </div>
+                                    <div class=" col-3 border d-flex">
+                                        <img src="../img/Rectangle 48.png" width="100px" height="100px">
+                                        <div class="mask rgba-white-slight"></div>
+                                    </div>
+                                    <div class=" col-3 border d-flex">
+                                        <img src="../img/Rectangle 48.png" width="100px" height="100px">
+                                        <div class="mask rgba-white-slight"></div>
+                                    </div>
+                                    <div class=" col-3 border d-flex">
+                                        <img src="../img/Rectangle 48.png" width="100px" height="100px">
+                                        <div class="mask rgba-white-slight"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <p class="fs-5">
+                        <i class="fab fa-shopify"></i> Sản phẩm: Đồng hồ nam
+                    </p>
+                    <p><span class="mr-1"><strong><i class="fas fa-tags"></i> giá gốc:
+                                5000000
+                            </strong></span></p>
+                    <h5 class="card-title d-flex">
+                        <span class=""><i class="fas fa-percent"></i> Sale: </span>
+                        <div class="sale_sp mx-2">
+                            <span>
+                                50%
+                            </span>
+                        </div>
+
+                    </h5>
+                    <h5 class="card-title text-dark"><i class="fas fa-eye"></i> View:
+                        23
+                    </h5>
+                    <hr>
+                    <div class="table-responsive mb-2">
+                        <table class="table table-sm table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="pl-0 pb-0 w-25">Quantity</td>
+                                </tr>
+                                <tr>
+                                    <td class="pl-0">
+                                        <div class="def-number-input number-input safari_only mb-0">
+                                            <div class="handle-counter d-flex">
+                                                <button id="decrement" onclick="stepper(this)" class="btn btn-primary">-</button>
+                                                <input type="number" min="0" max="" value="" id="my-input">
+                                                <button id="increment" onclick="stepper(this)" class="btn btn-primary">+</button>
+                                            </div>
+                                            <button type="submit" class="btn m-md-3 mb-2 add_to_card text-white">ADD
+                                                to CART</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark btn-md mb-2"><i class="far fa-heart"></i>
+                        Yêuthích</button>
+                    <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Mua ngay</button>
+                    <div class="share d-flex align-items-center mb-2 ">
+                        <span class="btn btn-primary">
+                            SHARE
+                        </span>
+                        <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end d-flex">
+
+                            <a class="btn btn-outline-dark btn-floating m-1 text-black" role="button"><i
+                                    class="fab fa-facebook-f"></i></a>
+
+
+                            <a class="btn btn-outline-dark btn-floating m-1 text-black" role="button"><i
+                                    class="fab fa-twitter"></i></a>
+
+
+                            <a class="btn btn-outline-dark btn-floating m-1 text-black" role="button"><i
+                                    class="fab fa-google"></i></a>
+
+
+                            <a class="btn btn-outline-dark btn-floating m-1 text-black" role="button"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+
+                    </div>
+
+                    <div class="share mb-2">
+                        <p><i class="fab fa-instagram"></i><span> Security Policy</span></p>
+                        <p><i class="fab fa-instagram"></i><span> Security Policy</span></p>
+                        <p><i class="fab fa-instagram"></i><span> Security Policy</span></p>
+                    </div>
+                    <div class="mt-3 mb-5">
+                        <span class="border-bottom fs-4 text-danger">
+                            Thông tin sản phẩm
+                        </span>
+                        <div class="tt_sp_chitiet d-flex flex-column mt-3">
+                            <span>
+                                Weight : 400 g
+                            </span>
+                            <span>
+                                Dimensions :10 x 10 x 15 cm
+                            </span>
+                            <span>
+                                Materials :60% cotton, 40% polyester
+                            </span>
+                            <span>
+                                Other Info :American heirloom jean shorts pug seitan letterpress
+                            </span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+        <div class="container mt-3">
+
+            <div class="container mt-3">
+                <div class="form-group">
+                    <div class="container tieude-main py-1">
+                        <a href="">
+                            <span class="text-white"><i class="far fa-comment"></i> Bình luận</span>
+                        </a>
+                    </div>
+                    <form action="" method="post">
+                        <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
+                        <input type="submit" name="submit_bl_main" class="btn btn-danger mt-3" value="gửi">
+                    </form>
+                </div>
+            </div>
+            <span class="text-danger">
+
+            </span>
+
+
+            <div class="main_comment container mt-3">
+                <div class="container tieude-main py-1">
+                    <a href="">
+                        <span class="text-white"><i class="far fa-comment"></i> Tất cả bình luận của người dùng</span>
+                    </a>
+                </div>
+                <div class="media border p-3">
+                    <div class="commment_so d-flex align-items-center">
+                        <img src="../img/Rectangle 48.png" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                        <h4>
+                            dep trai so 1
+                        </h4>
+                        <h3 class='text-danger'> (admin) </h3>
+                        <span class="fs-6 mx-2 d-flex "><i class="far fa-calendar-alt text-success fs-5 mx-2"></i> 29 -
+                            5 - 2004</span>
+                    </div>
+                    <div class="mt-3 card p-2 media-body">
+                        <p class="fs-4">Nội dung</p>
+                        <p>
+                            alllocjaosdjaspodpasoidas
+                        </p>
+                    </div>
+
+                    <div class="mt-3">
+                        <div class="d-flex">
+                            <a class="btn gui_bl" data-bs-toggle="collapse" href="#collapse">
+                                trả lời
+                            </a>
+                            <div class="mx-2">
+                                <a href='' class='btn btn-danger'>xóa</a>
+                            </div>
+                        </div>
+                        <div id="collapse" class="collapse" data-bs-parent="#accordion">
+                            <div class="card-body">
+                                <div class="form-group">
+
+                                    <form action="" method="post">
+                                        <input type="text" value="" name="id_sp" hidden>
+                                        <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
+                                        <input type="submit" name="submit_bl" class="btn btn-danger mt-3" value="gửi">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- comment con  -->
+                    <div class="container p-3" style="width: 95%;">
+                        <div class="commment_so d-flex align-items-center">
+                            <img src="../img/Rectangle 48.png" class="mr-3 mt-3 rounded-circle"
+                                style="width:40px; height:40px">
+                            <h5>
+                                dep trai so 1
+                            </h5>
+                            <h5 class='text-danger'> (admin) </h5>
+                            <span class="fs-6 mx-2 d-flex "><i class="far fa-calendar-alt text-success fs-5 mx-2"></i>
+                                29 - 5 - 2004</span>
+                        </div>
+                        <div class="">
+                            <div class="media-body mt-3 card p-2">
+                                <p class="fs-4">Nội dung</p>
+                                <p>
+                                    alllocjaosdjaspodpasoidas
+                                </p>
+                            </div>
+
+                            <div class="mt-3">
+                                <a href='' class='btn btn-danger'>xóa</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="container tieude-main p-3 mt-3">
+                <a href="">
+                    <span class="text-white"><i class="fab fa-shopify"></i> Sản phẩm liên quan</span>
+                </a>
+            </div>
+            <div class="mt-3">
+                <div class="swiper mySwiper2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="p-3 card">
+                                <div class="card__tt">
+                                    <div class="card__tt-image">
+                                        <img src="../img/Rectangle 11.png" alt="">
+                                        <div class="sp__hover d-flex  justify-content-around container">
+                                            <div class="sp__hover--button">
+                                                <strong><a>Chi tiết</a></strong>
+                                            </div>
+                                            <div class="icon">
+                                                <ul class="d-flex">
+                                                    <li><a href=""><i class="far fa-heart"></i></a></li>
+                                                    <li><a href=""><i class="far fa-share-square"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="stdio">
+                                        <span>BACH CHU DESIGN</span>
+                                    </div>
+                                    <div class="ten_sp">
+                                        <strong>Tên sản phẩm</strong>
+                                    </div>
+                                    <div class="gia_sp d-flex">
+                                        <div class="gia_goc">
+                                            <del><span>2000000</span></del>
+                                        </div>
+                                        <div class="gia_duocgiam">
+                                            <span>2000000</span>
+                                        </div>
+                                        <div class="sale_sp">
+                                            <span>
+                                                50%
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="new">
+                                        <span>
+                                            new
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="p-3 card">
+                                <div class="card__tt">
+                                    <div class="card__tt-image">
+                                        <img src="../img/Rectangle 11.png" alt="">
+                                        <div class="sp__hover d-flex  justify-content-around container">
+                                            <div class="sp__hover--button">
+                                                <strong><a>Chi tiết</a></strong>
+                                            </div>
+                                            <div class="icon">
+                                                <ul class="d-flex">
+                                                    <li><a href=""><i class="far fa-heart"></i></a></li>
+                                                    <li><a href=""><i class="far fa-share-square"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="stdio">
+                                        <span>BACH CHU DESIGN</span>
+                                    </div>
+                                    <div class="ten_sp">
+                                        <strong>Tên sản phẩm</strong>
+                                    </div>
+                                    <div class="gia_sp d-flex">
+                                        <div class="gia_goc">
+                                            <del><span>2000000</span></del>
+                                        </div>
+                                        <div class="gia_duocgiam">
+                                            <span>2000000</span>
+                                        </div>
+                                        <div class="sale_sp">
+                                            <span>
+                                                50%
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="new">
+                                        <span>
+                                            new
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="p-3 card">
+                                <div class="card__tt">
+                                    <div class="card__tt-image">
+                                        <img src="../img/Rectangle 11.png" alt="">
+                                        <div class="sp__hover d-flex  justify-content-around container">
+                                            <div class="sp__hover--button">
+                                                <strong><a>Chi tiết</a></strong>
+                                            </div>
+                                            <div class="icon">
+                                                <ul class="d-flex">
+                                                    <li><a href=""><i class="far fa-heart"></i></a></li>
+                                                    <li><a href=""><i class="far fa-share-square"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="stdio">
+                                        <span>BACH CHU DESIGN</span>
+                                    </div>
+                                    <div class="ten_sp">
+                                        <strong>Tên sản phẩm</strong>
+                                    </div>
+                                    <div class="gia_sp d-flex">
+                                        <div class="gia_goc">
+                                            <del><span>2000000</span></del>
+                                        </div>
+                                        <div class="gia_duocgiam">
+                                            <span>2000000</span>
+                                        </div>
+                                        <div class="sale_sp">
+                                            <span>
+                                                50%
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="new">
+                                        <span>
+                                            new
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="p-3 card">
+                                <div class="card__tt">
+                                    <div class="card__tt-image">
+                                        <img src="../img/Rectangle 11.png" alt="">
+                                        <div class="sp__hover d-flex  justify-content-around container">
+                                            <div class="sp__hover--button">
+                                                <strong><a>Chi tiết</a></strong>
+                                            </div>
+                                            <div class="icon">
+                                                <ul class="d-flex">
+                                                    <li><a href=""><i class="far fa-heart"></i></a></li>
+                                                    <li><a href=""><i class="far fa-share-square"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="stdio">
+                                        <span>BACH CHU DESIGN</span>
+                                    </div>
+                                    <div class="ten_sp">
+                                        <strong>Tên sản phẩm</strong>
+                                    </div>
+                                    <div class="gia_sp d-flex">
+                                        <div class="gia_goc">
+                                            <del><span>2000000</span></del>
+                                        </div>
+                                        <div class="gia_duocgiam">
+                                            <span>2000000</span>
+                                        </div>
+                                        <div class="sale_sp">
+                                            <span>
+                                                50%
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="new">
+                                        <span>
+                                            new
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\footer\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <div class="mt-5 w-100">
+        <!-- Footer -->
+        <footer class="text-center text-lg-start text-black">
+
+            <div class="p-1 pb-0">
+
+                <section class="container">
+
+                    <div class="row">
+
+                        <div class="col-xl-4 col-sm-12 mt-3 d-flex flex-column">
+                            <a class="navbar-brand__end" href=""><img src="../img/Rectangle 2.png" alt=""></a>
+                            <span class="mt-3 text-white">
+                                We are a team of designers and developers that create high
+                                quality HTML template
+                            </span>
+                            <div class="footer__phone d-flex mt-3">
+                                <span> <i class="fas fa-phone-alt"></i> </span>
+                                <div class="footer__phone--sdt d-flex flex-column">
+                                    <span>
+                                        (+800) 345 678
+                                    </span>
+                                    <span>
+                                        (+800) 345 678
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="w-100 clearfix d-md-none" />
+
+                        <div class="col-xl-4 col-sm-12 mt-3">
+                            <h6 class="text-uppercase mb-4 font-weight-bold">Trang chính</h6>
+                            <p>
+                                <a class="">Home</a>
+                            </p>
+                            <p>
+                                <a class="">Shop</a>
+                            </p>
+                            <p>
+                                <a class="">Bages</a>
+                            </p>
+                            <p>
+                                <a class="">Blog</a>
+                            </p>
+                            <p>
+                                <a class="">Contact</a>
+                            </p>
+                        </div>
+
+
+                        <hr class="w-100 clearfix d-md-none" />
+
+
+                        <div class="col-xl-4 col-sm-12 mt-3">
+                            <h6 class="text-uppercase mb-4 font-weight-bold">
+                                Đăng kí nhận ưu đãi
+                            </h6>
+                            <p>
+                                <a class="">You may unsubscribe
+                                    at any moment.For that purpose, please find our conta
+                                </a>
+                            </p>
+                            <p>
+                            <form class="d-flex">
+                                <input class="form-control" type="text" placeholder="enter  your email">
+                                <button class="btn text-white" type="button">Sign up</button>
+                            </form>
+                            </p>
+                            <p>
+                            <div class="row">
+                                <img src="../img/Rectangle 35.png" alt="" class="col-xl-6">
+                                <img src="../img/Rectangle 36.png" alt="" class="col-xl-6">
+                            </div>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <hr class="my-3">
+
+
+                <section class="p-3 pt-0">
+                    <div class="row d-flex align-items-center">
+
+                        <div class="col-md-7 col-lg-8 text-center text-md-start">
+
+                            <div class="p-3 ">
+                                <span class="text-white">© 2020 Copyright:</span>
+                                <a class="text-white" href="https://mdbootstrap.com/"></a>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+
+                            <a class="btn btn-outline-light btn-floating m-1" role="button"><i
+                                    class="fab fa-facebook-f"></i></a>
+
+
+                            <a class="btn btn-outline-light btn-floating m-1" role="button"><i
+                                    class="fab fa-twitter"></i></a>
+
+
+                            <a class="btn btn-outline-light btn-floating m-1" role="button"><i
+                                    class="fab fa-google"></i></a>
+
+
+                            <a class="btn btn-outline-light btn-floating m-1" role="button"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+        </footer>
+        <div class="top" id="myBtn"> <i class="fas fa-arrow-circle-up"></i> </div>
+    </div>
+
+
+    <script>
+        const myButton = document.querySelector('#myBtn');
+        console.log(myButton);
+        window.onscroll = function () {
+            scrollFuntion();
+        }
+        function scrollFuntion() {
+            myButton.style.display = "block";
+        }
+
+        myButton.onclick = function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.height = "50%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }
+    </script>
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper2", {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            slidesPerGroup: 4,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            // Responsive breakpoints
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is >= 640px
+                800: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                900: {
+                    slidesPerView: 4,
+                    spaceBetween: 40
+                }
+            }
+        });
+    </script>
+    <script>
+        /* Initiate Magnify Function
+        with the id of the image, and the strength of the magnifier glass:*/
+        magnify("myimage", 3);
+    </script>
+
+</body>
+
+</html>

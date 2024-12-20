@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title></title>
+    <script src="https://kit.fontawesome.com/e123c1a84c.js" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="../css/web.css">
+
+</head>
+
+<body>
+    <div class="top_nav_tt ">
+        <div class="call__us">
+            <span>
+                <i class="fas fa-phone-square-alt"></i> 012397131
+            </span>
+        </div>
+        <div class="login__us d-flex">
+            <div class="dropdown">
+                <div class="dropdown-toggle" data-bs-toggle="dropdown">
+                    <img src="../img/Rectangle 11.png" alt="" style="width: 30px; border-radius: 50%;">
+                    <span>Chảo A Phúc</span>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item text-dark" href="#">Admin</a></li>
+                    <li><a class="dropdown-item text-dark" href="../html/thongtin_tk.html">Thông tin tài khoản</a></li>
+                    <li><a class="dropdown-item text-dark" href="../html/login.html">Đăng nhập</a></li>
+                    <li><a class="dropdown-item text-dark" href="../html/login.html">Out login</a></li>
+                </ul>
+            </div>
+            <div class="gach mx-3"></div>
+            <a href="../html/dangky.html">Đăng ký</a>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-sm bg-white navbar-white sticky-top">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="#">
+                <div class="nav__logo">
+                    <img src="../img/Rectangle 2.png" alt="">
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/home.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Danh mục
+                            sản phẩm</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Link</a></li>
+                            <li><a class="dropdown-item" href="#">Another link</a></li>
+                            <li><a class="dropdown-item" href="#">A third link</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/contact.html">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tin tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Thông tin cửa hàng</a>
+                    </li>
+                </ul>
+                <div class="nav__right d-flex justify-content-around ">
+                    <span style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fas fa-search"></i></span>
+                    <div class="love">
+                        <div class="sl">1</div>
+                        <a href="../html/like.html">
+                            <span>
+                                <i class="fas fa-heart"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="shop__cart">
+                        <div class="sl">1</div>
+                        <a href="../html/card.html">
+                            <span>
+                                <i class="fas fa-shopping-cart"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="myNav" class="overlay ">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <center>
+            <span class="text-white fs-5">Tìm kiếm sản phẩm</span>
+            <div class="overlay-content">
+                <form class="d-flex align-items-center ">
+                    <input class="form-control me-2" type="text" placeholder="Search">
+                    <button class="btn Search_timkiem" type="button">Search</button>
+                </form>
+            </div>
+        </center>
+
+    </div>
+
+    
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\main\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <main class="main__one mt-3 container-xl">
+        <div class="tieude-main p-3 mt-3">
+            <a href="">
+                <span class="text-white"><i class="fab fa-shopify"></i> Giỏ hàng</span>
+            </a>
+        </div>
+        <div class="list">
+            <table class="list_card">
+                <tr class="list_card_name">
+                    <th class="id">Id</th>
+                    <th>Image</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Price</th>
+                    <th>Số lượng</th>
+                    <th>Giảm giá</th>
+                    <th>Tổng</th>
+                    <th>Chức năng</th>
+                </tr>
+                <tr class="list_card_item list_like_item">
+                    <td class="id">1</td>
+                    <td><img src="../img/Rectangle 11.png" alt=""></td>
+                    <td>12345</td>
+                    <td>12345</td>
+                    <td>12345</td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn">Xoá giỏ hàng</button></td>
+                </tr>
+            </table>
+            <div class="button__cart_gh">
+                <button class="btn">xóa giỏ hàng</button>
+                <button class="btn button_one">Cập nhật</button>
+            </div>
+        </div>
+        <div class="row dat_hang ">
+            <div class="col-lg-5 col-12">
+                <div class="row ">
+                    <div class="tieude-main p-3 mt-3">
+                        <a href="">
+                            <span class="text-white"><i class="far fa-heart"></i> Sản phẩm yêu thích</span>
+                        </a>
+                    </div>
+                    <div class="col-12 dat_hang_2 box_main_cart_sp">
+                        <div class="form ">
+                            <table class="don">
+                                <tr class="input">
+                                    <td><label>Họ tên:</label></td>
+                                    <td><input type="text"></td>
+                                </tr>
+                                <tr class="input">
+                                    <td><label>Địa chỉ:</label></td>
+                                    <td><input type="text"></td>
+                                </tr>
+                                <tr class="input">
+                                    <td><label>Điện thoại:</label></td>
+                                    <td><input type="text"></td>
+                                </tr>
+                            </table>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-5 col-12">
+                <div class="row">
+                    <div class="tieude-main p-3 mt-3">
+                        <a href="">
+                            <span class="text-white"><i class="far fa-heart"></i> Sản phẩm yêu thích</span>
+                        </a>
+                    </div>
+                    <div class="col-12 dat_hang_2 box_main_cart_sp">
+                        <div class=" row tong">
+                            <div class="col-8">
+                                <p>Tổng đơn hàng</p>
+                                <p>Phí vận chuyển</p>
+                                <p>Giảm giá</p>
+                                <p>Số tiền cần trả</p>
+                            </div>
+                            <class class="col-4">
+                                <p>12345000đ</p>
+                                <p>0đ</p>
+                                <p>0đ</p>
+                                <p>0đ</p>
+                     
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn dat_hang_3">đặt hàng</button>
+        </div>
+    </main>
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\footer\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <div class="mt-5 w-100">
+        <!-- Footer -->
+        <footer class="text-center text-lg-start text-black">
+
+            <div class="p-1 pb-0">
+
+                <section class="container">
+
+                    <div class="row">
+
+                        <div class="col-xl-4 col-sm-12 mt-3 d-flex flex-column">
+                            <a class="navbar-brand__end" href=""><img src="../img/Rectangle 2.png" alt=""></a>
+                            <span class="mt-3">
+                                We are a team of designers and developers that create high
+                                quality HTML template
+                            </span>
+                            <div class="footer__phone d-flex mt-3">
+                                <span> <i class="fas fa-phone-square-alt"></i> </span>
+                                <div class="footer__phone--sdt d-flex flex-column ">
+                                    <span>
+                                        (+800) 345 678
+                                    </span>
+                                    <span>
+                                        (+800) 345 678
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="w-100 clearfix d-md-none" />
+
+                        <div class="col-xl-4 col-sm-12 mt-3">
+                            <h6 class="text-uppercase mb-4 font-weight-bold">Trang chính</h6>
+                            <p>
+                                <a class="">Home</a>
+                            </p>
+                            <p>
+                                <a class="">Shop</a>
+                            </p>
+                            <p>
+                                <a class="">Bages</a>
+                            </p>
+                            <p>
+                                <a class="">Blog</a>
+                            </p>
+                            <p>
+                                <a class="">Contact</a>
+                            </p>
+                        </div>
+
+
+                        <hr class="w-100 clearfix d-md-none" />
+
+
+                        <div class="col-xl-4 col-sm-12 mt-3">
+                            <h6 class="text-uppercase mb-4 font-weight-bold">
+                                Đăng kí nhận ưu đãi
+                            </h6>
+                            <p>
+                                <a class="">You may unsubscribe
+                                    at any moment.For that purpose, please find our conta
+                                </a>
+                            </p>
+                            <p>
+                            <form class="d-flex">
+                                <input class="form-control" type="text" placeholder="enter  your email">
+                                <button class="btn text-white" type="button">Sign up</button>
+                            </form>
+                            </p>
+                            <p>
+                            <div class="row">
+                                <img src="../img/Rectangle 35.png" alt="" class="col-xl-6">
+                                <img src="../img/Rectangle 36.png" alt="" class="col-xl-6">
+                            </div>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <hr class="my-3">
+
+
+                <section class="p-3 pt-0">
+                    <div class="row d-flex align-items-center">
+
+                        <div class="col-md-7 col-lg-8 text-center text-md-start">
+
+                            <div class="p-3">
+                                © 2020 Copyright:
+                                <a class="text-white" href="https://mdbootstrap.com/"></a>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+
+                            <a class="btn btn-outline-light btn-floating m-1" role="button"><i
+                                    class="fab fa-facebook-f"></i></a>
+
+
+                            <a class="btn btn-outline-light btn-floating m-1" role="button"><i
+                                    class="fab fa-twitter"></i></a>
+
+
+                            <a class="btn btn-outline-light btn-floating m-1" role="button"><i
+                                    class="fab fa-google"></i></a>
+
+
+                            <a class="btn btn-outline-light btn-floating m-1" role="button"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+        </footer>
+        <div class="top" id="myBtn"> <i class="fas fa-arrow-circle-up"></i> </div>
+    </div>
+
+
+    <script>
+        const myButton = document.querySelector('#myBtn');
+        console.log(myButton);
+        window.onscroll = function () {
+            scrollFuntion();
+        }
+        function scrollFuntion() {
+            myButton.style.display = "block";
+        }
+
+        myButton.onclick = function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.height = "50%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }
+    </script>
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            slidesPerGroup: 3,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            // Responsive breakpoints
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                },
+                // when window width is >= 480px
+                480: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is >= 640px
+                640: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            }
+        });
+    </script>
+    <!-- Thêm thẻ script để kết nối với pay.js -->
+    <script src="/Thoitrang/mvc/public/js/pay.js"></script>
+</body>
+
+</html>
